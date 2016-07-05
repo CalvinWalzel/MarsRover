@@ -1,6 +1,6 @@
 # MarsRover
 
-## TODO
+To run the project, please build it once to restore nuget packages. Built in Visual Studio 2015 with .net 4.6.1
 
 ## Problem Objective
 
