@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MarsRover.Enums
+﻿namespace MarsRover.Enums
 {
+    /// <summary>
+    /// Represents a command for a Rover.
+    /// </summary>
     public enum Command
     {
         TurnLeft = 0,

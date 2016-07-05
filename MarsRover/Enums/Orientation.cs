@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MarsRover.Enums
+﻿namespace MarsRover.Enums
 {
+    /// <summary>
+    /// The orientation of a Rover.
+    /// </summary>
     public enum Orientation
     {
         North = 0,

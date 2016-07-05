@@ -11,6 +11,9 @@ namespace MarsRover
         IList<string> PrintStatus();
     }
 
+    /// <summary>
+    /// A world object. Represents the world, takes care of the simulation and contains all Rovers.
+    /// </summary>
     public class World : IWorld
     {
         private int worldWidth;
@@ -30,6 +33,7 @@ namespace MarsRover
             {
                 var rover = result.Rovers[i];
 
+                // Determine the highest amount of commands for the simulation loop.
                 if (rover.Commands.Count > simulationCount)
                     simulationCount = rover.Commands.Count;
 
@@ -45,11 +49,13 @@ namespace MarsRover
                 {
                     var rover = rovers[e];
 
+                    // If the rover has no commands anymore, skip it.
                     if (rover.Commands.Count == 0)
                         continue;
 
                     var command = rover.Commands.Dequeue();
 
+                    // If the rover would move out of boundaries, we throw an exception.
                     if (rover.X > worldWidth || rover.X < 0 || rover.Y > worldHeight || rover.Y < 0)
                         throw new Exception(string.Format("Invalid command. Rover would move out of boundaries. Rover {0}", e));
                     
@@ -59,6 +65,9 @@ namespace MarsRover
             return PrintStatus();
         }
 
+        /// <summary>
+        /// Returns the current status of all Rovers as a string array.
+        /// </summary>
         public IList<string> PrintStatus()
         {
             List<string> result = new List<string>();

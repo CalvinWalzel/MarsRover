@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace MarsRover.IO
 {
+    /// <summary>
+    /// Represents the data parsed from a commands file.
+    /// </summary>
     public class ParserResult
     {
         public int WorldWidth;

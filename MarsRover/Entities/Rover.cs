@@ -24,6 +24,9 @@ namespace MarsRover
             Commands = new Queue<Command>();
         }
 
+        /// <summary>
+        /// Add a batch of commands to the queue.
+        /// </summary>
         public void AddCommands(IList<Command> commands)
         {
             foreach(var command in commands)
@@ -32,6 +35,10 @@ namespace MarsRover
             }
         }
 
+        /// <summary>
+        /// Executes a command.
+        /// </summary>
+        /// <param name="command">The command to be executed.</param>
         public void Execute(Command command)
         {
             switch(command)
@@ -67,6 +74,9 @@ namespace MarsRover
             }
         }
 
+        /// <summary>
+        /// Prints the status of the Rover as a string.
+        /// </summary>
         public override string ToString()
         {
             return string.Format("{0} {1} {2}", X, Y, Orientation.ToFriendlyString());

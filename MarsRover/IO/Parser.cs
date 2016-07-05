@@ -9,6 +9,9 @@ namespace MarsRover.IO
         ParserResult Read(string path);
     }
 
+    /// <summary>
+    /// Parses data from a commands file and serializes these into objects (a ParserResult).
+    /// </summary>
     public class Parser : IParser
     {
         private ParserResult result;
@@ -30,6 +33,7 @@ namespace MarsRover.IO
             {
                 while ((line = file.ReadLine()) != null)
                 {
+                    // If line is empty, null or whitespace, skip it. After that, trim all leading and trailing whitespaces.
                     if (string.IsNullOrWhiteSpace(line))
                         continue;
 
@@ -45,11 +49,13 @@ namespace MarsRover.IO
                         continue;
                     }
 
+                    // Even line is a rover declaration.
                     if((counter % 2) == 0)
                     {
                         rover = CreateRover(lineProperties);
                     }
 
+                    // Uneven line is a series of commands.
                     if((counter % 2) == 1)
                     {
                         var commands = CreateRoverCommands(lineProperties[0]);
@@ -81,11 +87,13 @@ namespace MarsRover.IO
             int x = Convert.ToInt32(line[0]);
             int y = Convert.ToInt32(line[1]);
 
+            // Check if position is outside of world boundaries.
             if (x > result.WorldWidth)
                 throw new Exception("X coordinate is outside of world for rover " + result.Rovers.Count + 1);
             if (y > result.WorldHeight)
                 throw new Exception("Y coordinate is outside of world for rover " + result.Rovers.Count + 1);
 
+            // Determine orientation.
             switch (line[2])
             {
                 case "N":
@@ -111,9 +119,11 @@ namespace MarsRover.IO
         {
             var commands = new List<Command>();
 
+            // If no commands, throw an exception.
             if (line == null)
                 throw new Exception("Invalid or no commands for rover " + result.Rovers.Count + 1);
 
+            // Determine command.
             foreach (char character in line)
             {
                 Command command;
