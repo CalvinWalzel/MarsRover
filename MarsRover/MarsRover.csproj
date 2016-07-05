@@ -49,7 +49,8 @@
     <Compile Include="IO\Parser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Rover.cs" />
+    <Compile Include="Entities\Rover.cs" />
+    <Compile Include="Entities\World.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

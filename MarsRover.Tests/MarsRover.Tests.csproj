@@ -67,6 +67,7 @@
     <Compile Include="ParserTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\AreEqualByJson.cs" />
+    <Compile Include="WorldTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -78,7 +79,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="commands.txt">
+    <Content Include="Data\full.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\simple.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

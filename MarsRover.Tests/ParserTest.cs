@@ -14,7 +14,7 @@ namespace MarsRover.Tests
         {
             IParser parser = new Parser();
 
-            var result = parser.Read("commands.txt");
+            var result = parser.Read("Data/simple.txt");
 
             var expected = new ParserResult
             {

@@ -23,7 +23,19 @@ namespace MarsRover
                 commandFile = Console.ReadLine();
             }
             IParser parser = new Parser();
-            var result = parser.Read(commandFile);
+            var data = parser.Read(commandFile);
+
+            IWorld world = new World(data);
+
+            var result = world.Simulate();
+
+            foreach(var line in result)
+            {
+                Console.WriteLine(line);
+            }
+
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
         }
     }
 }
